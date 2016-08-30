@@ -1,0 +1,19 @@
+.square {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+}
+
+.piece {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.dark {
+    background: #9c9c9c;
+}
+
+.over {
+    background: pink;
+}
