@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chess.js": "^0.10.2",
     "react": "^15.3.1",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",
