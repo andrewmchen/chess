@@ -1,5 +1,5 @@
-LINTER := ./node_modules/jshint/bin/jshint
+LINTER := ./node_modules/.bin/eslint
 .PHONY: lint
 lint:
-	$(LINTER) modules/*
+	$(LINTER) modules
 
