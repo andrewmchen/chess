@@ -85,6 +85,7 @@ module.exports = {
         "id-match": "error",
         "indent": "off",
         "init-declarations": "error",
+        "react/jsx-uses-vars": "error",
         "jsx-quotes": [
             "error",
             "prefer-single"
@@ -214,7 +215,7 @@ module.exports = {
         "no-with": "error",
         "nonblock-statement-body-position": "error",
         "object-curly-newline": "error",
-        "object-curly-spacing": "off",
+        "object-curly-spacing": [2, "always"],
         "object-property-newline": [
             "error",
             {
@@ -241,6 +242,7 @@ module.exports = {
             "single"
         ],
         "radix": "error",
+        "react/jsx-uses-vars": "error",
         "require-await": "error",
         "require-jsdoc": "off",
         "rest-spread-spacing": "error",

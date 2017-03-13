@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
+import { Component } from 'react';
+import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import { Game } from './State.js';
-import { Square } from './Square.js';
-import { COLS, ROWS, SQUARES } from './Constants.js';
+import { COLS, ROWS } from './Constants.js';
 
 let a = new Game();
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 
 import { Piece } from './Piece.js'
@@ -19,9 +19,6 @@ const squareTarget = {
   drop(props, monitor) {
       let from = monitor.getItem()['square'];
       let to = props.square;
-      console.log(from);
-      console.log(to);
-      console.log(props.canMove(from, to));
       if (props.canMove(from, to)) {
           props.move(from, to);
       }

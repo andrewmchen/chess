@@ -17,11 +17,11 @@ class Game {
     }
 
     movesFrom(from) {
-        return this.chess.moves({square: from});
+        return this.chess.moves({ square: from });
     }
 
     move(from, to) {
-        return this.chess.move({from: from, to: to});
+        return this.chess.move({ from: from, to: to });
     }
 
     squareColor(s) {

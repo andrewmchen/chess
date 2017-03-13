@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { DragSource } from 'react-dnd';
 
 class _Piece extends Component {
@@ -16,7 +16,7 @@ class _Piece extends Component {
 
 const pieceSource = {
     beginDrag(props) {
-        return {square: props.square};
+        return { square: props.square };
     }
 };
 

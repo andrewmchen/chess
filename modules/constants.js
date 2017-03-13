@@ -8,4 +8,4 @@ ROWS.split('').forEach(r => {
     });
 });
 
-export {SQUARES, ROWS, COLS};
+export { SQUARES, ROWS, COLS };
