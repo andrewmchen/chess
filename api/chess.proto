@@ -1,0 +1,15 @@
+package chess;
+
+message Move {
+    optional string from_square = 1;
+    optional string to_square = 2;
+    optional string promotion = 3;
+
+    message Response {
+        optional GameState state = 1;
+    }
+}
+
+message GameState {
+    optional string fen = 1;
+}

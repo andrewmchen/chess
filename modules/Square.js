@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 
 import { Piece } from './Piece.js'

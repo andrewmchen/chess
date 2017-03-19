@@ -1,26 +1,53 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import _ from 'lodash';
 
+import { Square } from './Square.js'
 import { Game } from './State.js';
 import { COLS, ROWS } from './Constants.js';
+import { Api } from './Api.js';
 
-let a = new Game();
+const game = new Game();
+window.game = game;
 
 class _Board extends Component {
     constructor(props) {
         super(props);
-        this.state = a.state;
+        this.state = game.state;
         this.move = this.move.bind(this);
     }
+    componentDidMount() {
+        Api.getState({
+            success: _.bind(function(gameState) {
+                game.loadFen(gameState.fen);
+                this.setState(game.state);
+            }, this),
+        });
+        setInterval(() => {
+            Api.getState({
+                success: _.bind(function(gameState) {
+                    game.loadFen(gameState.fen);
+                    this.setState(game.state);
+                }, this),
+            });
+        }, 1000);
+    }
     canMove(from, to) {
-        let moves = a.movesFrom(from);
-        let squares = moves.map(m => m.match(/[a-h][1-8]/)[0]);
-        return (squares.indexOf(to) != -1);
+        const moves = game.movesFrom(from);
+        for (let move of moves) {
+            if (move.to === to) {
+                return true;
+            }
+        }
+        return false;
     }
     move(from, to) {
-        a.move(from, to);
-        this.setState(a.state);
+        console.log(from)
+        console.log(to)
+        Api.move(from, to);
+        game.move(from, to);
+        this.setState(game.state);
     }
     render() {
         let rows = [];
@@ -28,12 +55,12 @@ class _Board extends Component {
             let row = [];
             COLS.split('').forEach(c => {
                 let s = c + r;
-                let squareColor = a.squareColor(s);
+                let squareColor = game.squareColor(s);
                 let color = null;
                 let piece = null;
-                if (a.state[s]) {
-                    color = a.state[s].color; 
-                    piece = a.state[s].type;
+                if (this.state[s]) {
+                    color = this.state[s].color; 
+                    piece = this.state[s].type;
                 }
                 row.push(
                   (<Square 
@@ -52,4 +79,5 @@ class _Board extends Component {
         return (<div className='board'>{rows}</div>);
     }
 }
+
 export const Board = DragDropContext(HTML5Backend)(_Board);

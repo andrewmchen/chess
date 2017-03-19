@@ -1,12 +1,12 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
 
 class _Piece extends Component {
     render() {
         if (this.props.color && !this.props.isDragging) {
-            let imageName = `assets/${this.props.color}${this.props.piece}.svg`;
+            let imageName = `static/assets/${this.props.color}${this.props.piece}.svg`;
             return this.props.connectDragSource(
-                <img className='piece' src={imageName}></img>
+                <div><img className='piece' src={imageName}></img></div>
             );
         } else {
             return null;

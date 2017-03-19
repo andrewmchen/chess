@@ -1,0 +1,42 @@
+{
+  "nested": {
+    "chess": {
+      "nested": {
+        "Move": {
+          "fields": {
+            "fromSquare": {
+              "type": "string",
+              "id": 1
+            },
+            "toSquare": {
+              "type": "string",
+              "id": 2
+            },
+            "promotion": {
+              "type": "string",
+              "id": 3
+            }
+          },
+          "nested": {
+            "Response": {
+              "fields": {
+                "state": {
+                  "type": "GameState",
+                  "id": 1
+                }
+              }
+            }
+          }
+        },
+        "GameState": {
+          "fields": {
+            "fen": {
+              "type": "string",
+              "id": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
