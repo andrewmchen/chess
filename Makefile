@@ -10,6 +10,7 @@ all: proto out/bundle.js
 
 clean:
 	rm -rf build
+
 build: static build/bundle.js
 	cp -r static/ build/
 
